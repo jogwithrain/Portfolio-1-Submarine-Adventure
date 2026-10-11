@@ -146,7 +146,7 @@ void camera(vector<vector<char>>& v, string input, int& r, int& c, int& pr, int&
                 o = 50;
             }
             else {
-                o = o - (rand() % 5);
+                o = o - (rand() % (5 - 1) + 1);
             }
             if (r == 0) { //Bound check. Reprints if reachs out-of-bounds
                 for (int i = r;i < r + 5;i++) {
@@ -189,7 +189,7 @@ void camera(vector<vector<char>>& v, string input, int& r, int& c, int& pr, int&
             }
             pr++;
             v[pr][pc] = '@';
-            o = o - (rand() % 5);
+            o = o - (rand() %(5-1)+1);
             if (r == 5) { //Bound check. Reprints if reachs out-of-bounds
                 for (int i = r;i < r + 5;i++) {
                     for (int j = c;j < c + 5;j++) {
@@ -236,7 +236,7 @@ void camera(vector<vector<char>>& v, string input, int& r, int& c, int& pr, int&
                 o = 50;
             }
             else {
-                o = o - (rand() % 5);
+                o = o - (rand() % (5 - 1) + 1);
             }
             if (c == 5) { //Bound check. Reprints if reachs out-of-bounds
                 for (int i = r;i < r + 5;i++) {
@@ -283,7 +283,7 @@ void camera(vector<vector<char>>& v, string input, int& r, int& c, int& pr, int&
                 o = 50;
             }
             else {
-                o = o - (rand() % 5);
+                o = o - (rand() % (5 - 1) + 1);
             }
             if (c == 0) { //Bound check. Reprints if reachs out-of-bounds
                 for (int i = r;i < r + 5;i++) {
@@ -318,9 +318,9 @@ void camera(vector<vector<char>>& v, string input, int& r, int& c, int& pr, int&
     }
     else if (input == "inspect" || input == "Inspect") {
         if ((pr > 0 && v[pr - 1][pc] == '*') || (pr < 9 && v[pr + 1][pc] == '*') || (pc < 9 && v[pr][pc + 1] == '*') || (pc > 0 && v[pr][pc - 1] == '*')) {
-            vector<string> treasure = { "Boot","Coin","Crab","Echo Shard","Golden Shark-tooth","Pearls","Bronze Sword" };
-            vector<int> value = { 3,5,1,45,80,100,25 };
-            int x = rand() % 7; //goes from 0 to 6
+            vector<string> treasure = { "Boot","Coin","Crab","Echo Shard","Golden Shark-tooth","Pearls","Bronze Sword", "Phantom membrane", "Slime", "Magic Wand", "JBL Speaker"};
+            vector<int> value = { 3,5,1,45,80,100,25,45,2,20,50 };
+            int x = rand() % 11; //goes from 0 to 10
             name.push_back(treasure.at(x));
             total.push_back(value.at(x));
             cout << "You found treasure! You specifically found: " << treasure.at(x) << " worth $" << value.at(x) << endl;
